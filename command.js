@@ -13,9 +13,9 @@ var omdb = keys.omdb;
 var moment = require("moment");
 moment().format();
 
-// Create the concert constructor
-var Command = function(band) {
-  // divider will be used as a spacer between the tv data we print in random.txt
+
+function getConcert (band) {
+  // all the code to execute the that api
   var divider = "\n------------------------------------------------------------\n\n";
 
   // findShow takes in the name of a tv show and searches the tvmaze API
@@ -48,13 +48,15 @@ var Command = function(band) {
     });
   };
 }
-var Command = function() {
+ 
+function getSong (song) {
+   // all the code to get the movie
   // divider will be used as a spacer between the tv data we print in random.txt
   var divider = "\n------------------------------------------------------------\n\n";
 
   // findSong takes in the name of a tv show and searches the Spotify API
   this.findSong = function(song) {
-    var URL = "https://rest.bandsintown.com/artists/" + song + "/events?app_id=codingbootcamp";
+   
     console.log("Spotify is working");
 
     request(URL, function(err, response, body) {
@@ -76,9 +78,9 @@ var Command = function() {
       });
     });
   };
-}
+ }
 
-var Command = function(movie) {
+ function getMovie (song) {
   // divider will be used as a spacer between the tv data we print in random.txt
   var divider = "\n------------------------------------------------------------\n\n";
 
@@ -110,36 +112,26 @@ var Command = function(movie) {
     });
   };
 }
-// var Command = function() {
-//   // divider will be used as a spacer between the tv data we print in random.txt
-//   var divider = "\n------------------------------------------------------------\n\n";
 
-//   // findShow takes in the name of a tv show and searches the tvmaze API
-//   this.findShow = function(band) {
-//     var URL = "https://rest.bandsintown.com/artists/" + band + "/events?app_id=codingbootcamp";
-//     console.log("BIT API working");
+function getCommand() {
+  // divider will be used as a spacer between the tv data we print in random.txt
+  var divider = "\n------------------------------------------------------------\n\n";
 
-//     request(URL, function(err, response, body) {
-//       // Parse the response body (string) to a JSON object
-//       var jsonData = JSON.parse(body);
-  
-//       // showData ends up being the string containing the show data we will print to the console
-//       // Name of the venue
-//       // Venue location
-//       // Date of the Event (use moment to format this as "MM/DD/YYYY") 
+  // findCommand takes in the name of a tv show and searches the tvmaze API
+  this.findCommand = function() {
+    
+    console.log("");
 
-//       var showData = [
-//           "Venue Name: " + jsonData.venue.name,
-//           "Venue City: " + jsonData.venue.city,
-//           "Date: " + jsonData.datetime,
-//       ].join("\n\n");
+    request(URL, function(err, response, body) {
+      // Parse the response body (string) to a JSON object
+      var jsonData = JSON.parse(body);
 
-//       // Append showData and the divider to log.txt, print showData to the console
-//       fs.appendFile("random.txt", showData + divider, function(err) {
-//         if (err) throw err;
-//         console.log(showData);
-//       });
-//     });
-//   };
-// }
-module.exports = Command;
+      // Append showData and the divider to log.txt, print showData to the console
+      fs.appendFile("random.txt", movieData + divider, function(err) {
+        if (err) throw err;
+        console.log(movieData);
+      });
+    });
+  };
+}
+
