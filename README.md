@@ -2,6 +2,10 @@
 
 ## Summary
 
+This project was made in Node and it's called LIRI. LIRI is like iPhone's SIRI. However, while SIRI is a Speech Interpretation and Recognition Interface, LIRI is a _Language_ Interpretation and Recognition Interface. LIRI will be a command line node app that takes in parameters and gives you back data. 
+
+The user can fetch information about a band's next concert, details about a song, details about a movie, and also take the text from the text file and use it to call one of LIRI's commands.
+
 ## Instructions
 
 1. Open your computer's terminal.
